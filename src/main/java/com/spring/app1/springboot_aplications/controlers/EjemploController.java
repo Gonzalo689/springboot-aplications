@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
+// Controller para manejar las peticiones HTTP y devolver vistas
+// En este caso, se utiliza Thymeleaf como motor de plantillas para renderizar las vistas
 @Controller
 public class EjemploController {
 
