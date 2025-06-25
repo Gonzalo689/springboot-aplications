@@ -1,27 +1,34 @@
 package com.spring.app1.springboot_aplications.controlers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.app1.springboot_aplications.models.dto.ClassDTO;
+
 
 // Controlador REST para manejar las peticiones HTTP y devolver respuestas en formato JSON o texto plano o xml
 @RestController 
+@RequestMapping("/api") 
 public class EjemploRestController {
 
-    @GetMapping("/detalles_info_rest")
-  
-    public Map<String, Object> detalles_info_rest() {
-        Map<String, Object> respuesta = new HashMap<>();
+    // @GetMapping("/detalles_info_rest")
+    @GetMapping(path = "/detalles_info_rest")
 
-        respuesta.put("titulo", "Servidor Spring Boot");
-        respuesta.put("servidor", "informaticonfig");
-        respuesta.put("version", "1.0.0");
-        respuesta.put("autor", "Gonzalo Contreras");
+    
+    public ClassDTO detalles_info_rest() {
+        // Empleados empleado = new Empleados( "Juan", "Pérez", "Calle Falsa 123", "Desarrollador", 30, 123456789, 1);
 
+        // Map<String, Object> respuesta = new HashMap<>();
 
-        return respuesta;
+        // respuesta.put("Empleado",  empleado);
+        
+        ClassDTO usuario = new ClassDTO();
+        usuario.setTitulo("Servidor Spring Boot");
+        usuario.setUsuario("Juan Pérez");
+
+        
+        return usuario;
     }
     
 }
