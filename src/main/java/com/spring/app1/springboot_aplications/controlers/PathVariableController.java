@@ -1,0 +1,22 @@
+package com.spring.app1.springboot_aplications.controlers;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+
+
+@RestController
+@RequestMapping("/api/variable")
+public class PathVariableController {   
+    @GetMapping("/pagina1/{informacion}")
+    public ParametroDTO pagina1(@PathVariable String informacion) {
+        ParametroDTO parametro = new ParametroDTO();
+        parametro.setInformacion(informacion);
+        return parametro;
+    }
+    
+
+}
