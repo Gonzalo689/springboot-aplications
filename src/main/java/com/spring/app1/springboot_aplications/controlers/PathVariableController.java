@@ -1,9 +1,15 @@
 package com.spring.app1.springboot_aplications.controlers;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.spring.app1.springboot_aplications.models.Empleados;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -16,6 +22,12 @@ public class PathVariableController {
         ParametroDTO parametro = new ParametroDTO();
         parametro.setInformacion(informacion);
         return parametro;
+    }
+    
+    @PostMapping("/solicutud")
+    public Empleados creaEmple(@RequestBody Empleados empleado1) {
+        
+        return empleado1;
     }
     
 
