@@ -1,6 +1,6 @@
 package com.spring.app1.springboot_aplications.models;
 
-public class Productos {
+public class Productos implements Cloneable{
     private long id;
     private String nombre;
     private int precio;
@@ -28,6 +28,15 @@ public class Productos {
     }
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+    @Override
+    public Object clone() {
+
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return new Productos(this.id, this.nombre, this.precio);
+        }
     }
     
 }
