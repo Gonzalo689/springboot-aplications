@@ -1,18 +1,24 @@
 package com.spring.app1.springboot_aplications.services;
 
 import com.spring.app1.springboot_aplications.models.Productos;
-import com.spring.app1.springboot_aplications.repositorios.Repo_Productos;
+import com.spring.app1.springboot_aplications.repositorios.Repo_Productos_Imp;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Servicio para manejar productos.
  * Este servicio interactúa con el repositorio de productos para obtener
  * una lista de productos y buscar un producto por su ID.
  */
-public class Producto_Services {
+@Component
+public class Producto_Services_Imp  implements ProductoServicio{
 
-    private Repo_Productos repoProductos = new Repo_Productos();
+    @Autowired
+    private Repo_Productos_Imp repoProductos;
 
+    @Override
     public List<Productos> getAllProductos() {
         
         // return repoProductos.getProductos().stream()
@@ -31,7 +37,7 @@ public class Producto_Services {
                 })
                 .toList();
     }
-
+    @Override
     public Productos getProductoById(long id) {
         return repoProductos.getProductoById(id);
     }

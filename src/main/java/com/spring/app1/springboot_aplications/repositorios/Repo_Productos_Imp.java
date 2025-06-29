@@ -3,10 +3,13 @@ import com.spring.app1.springboot_aplications.models.Productos;
 import java.util.Arrays;
 import java.util.List;
 
-public class Repo_Productos {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Repo_Productos_Imp implements ProductoRepositorio {
     List <Productos> productos ;
 
-    public Repo_Productos() {
+    public Repo_Productos_Imp() {
         this.productos = Arrays.asList(
             new Productos(1, "Producto 1", 100),
             new Productos(2, "Producto 2", 200),
@@ -16,11 +19,11 @@ public class Repo_Productos {
 
         );
     }
-
+    @Override
     public List<Productos> getProductos() {
         return productos;
     }
-
+    @Override
     public Productos getProductoById(long id) {
         return productos.stream()
                 .filter(producto -> producto.getId() == id)
