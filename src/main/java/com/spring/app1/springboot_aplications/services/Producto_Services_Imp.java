@@ -1,7 +1,7 @@
 package com.spring.app1.springboot_aplications.services;
 
 import com.spring.app1.springboot_aplications.models.Productos;
-import com.spring.app1.springboot_aplications.repositorios.Repo_Productos_Imp;
+import com.spring.app1.springboot_aplications.repositorios.ProductoRepositorio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class Producto_Services_Imp  implements ProductoServicio{
 
     @Autowired
-    private Repo_Productos_Imp repoProductos;
+    private ProductoRepositorio repoProductos;
 
     @Override
     public List<Productos> getAllProductos() {
