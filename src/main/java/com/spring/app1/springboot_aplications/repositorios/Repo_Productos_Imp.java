@@ -3,9 +3,9 @@ import com.spring.app1.springboot_aplications.models.Productos;
 import java.util.Arrays;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class Repo_Productos_Imp implements ProductoRepositorio {
     List <Productos> productos ;
 

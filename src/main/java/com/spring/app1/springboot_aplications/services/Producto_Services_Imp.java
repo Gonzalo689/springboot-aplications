@@ -5,14 +5,14 @@ import com.spring.app1.springboot_aplications.repositorios.ProductoRepositorio;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Servicio para manejar productos.
  * Este servicio interactúa con el repositorio de productos para obtener
  * una lista de productos y buscar un producto por su ID.
  */
-@Component
+@Service
 public class Producto_Services_Imp  implements ProductoServicio{
 
     @Autowired
