@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ManejoErrores {
 
     @ExceptionHandler(ArithmeticException.class)  // Captura cualquier tipo de excepcion
-    public ResponseEntity<String> manejarExcepcion(ArithmeticException e) {
+    public ResponseEntity<String> manejarArithmeticException(ArithmeticException e) {
         System.err.println("Error: " + e.getMessage()); // Imprime el error en la consola
         return new ResponseEntity<>("Division no permitida", HttpStatus.BAD_REQUEST); // Retorna un mensaje de error
+    }
+
+    @ExceptionHandler(NumberFormatException.class)  // Captura cualquier tipo de excepcion
+    public ResponseEntity<String> manejarNumberFormatException(NumberFormatException e) {
+        System.err.println("Error: " + e.getMessage()); // Imprime el error en la consola
+        return new ResponseEntity<>("Valor ingresado no numérico", HttpStatus.BAD_REQUEST); // Retorna un mensaje de error
     }
 }
