@@ -15,7 +15,8 @@ public class Operaciones {
         try {
             int numerator = Integer.parseInt(NumeratorStr);
             int denominator = Integer.parseInt(DenominatorStr);
-            return "El resultado de la division es: " + (numerator / denominator);
+            int result = numerator / denominator;
+            return "El resultado de la division es: " + (result);
         } catch (ArithmeticException e) {
             throw e;
         } catch (NumberFormatException e) {
