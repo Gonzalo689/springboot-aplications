@@ -22,6 +22,15 @@ public class Operaciones {
         } catch (NumberFormatException e) {
             throw e;
         }
+    }   
+}
+
+@RestController
+class Null_P_E{
+    @GetMapping("/null")
+    public String nullPointer() {
+        String str = null;
+        str.length(); // Esto lanzará una NullPointerException
+        return "valor nulo en la variable"; // Esto lanzará una NullPointerException
     }
-    
 }
