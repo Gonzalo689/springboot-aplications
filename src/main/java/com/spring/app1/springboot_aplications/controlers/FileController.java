@@ -9,27 +9,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.app1.springboot_aplications.services.FileContent;
 
+@RestController
+@RequestMapping("/archivo")
 public class FileController {
 
-    @RestController
-    @RequestMapping("/file")
-    public class FileApiController {
+    private final FileContent contenido ;
 
-        private final FileContent contenido;
-
-        public FileApiController(FileContent contenido) {
-            this.contenido = contenido;
-        }
-
-        @GetMapping("/read")
-        public ResponseEntity<String> readFile(@RequestParam String filename) {
-            try {
-                String fileContent = contenido.lecturaArchivo(filename);
-                return ResponseEntity.ok(fileContent);
-            } catch (NullPointerException e) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Se ha producido un error de puntero nulo: " + e.getMessage());
-            }
-            
-        }
+    public FileController(FileContent contenido) { 
+        this.contenido = contenido;
     }
+
+    @GetMapping("/read")
+    public ResponseEntity<String> readFile(@RequestParam String filepath) {
+        try {
+            String fileContent = contenido.lecturaArchivo(filepath);
+            System.err.println("Contenido del archivo: "); 
+            return ResponseEntity.ok(fileContent);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Se ha producido un error de puntero nulo: " + e.getMessage());
+        }
+        
+    }
+
 }

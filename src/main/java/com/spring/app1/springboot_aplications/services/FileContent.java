@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class FileContent {
-    public String lecturaArchivo(String filename) {
+
+    
+    public String lecturaArchivo(String fileName) {
         try {
-            Path filePath = Paths.get(filename);
+            Path filePath = Paths.get(fileName);
             return Files.readString(filePath);
 
         } catch (IOException e) {
