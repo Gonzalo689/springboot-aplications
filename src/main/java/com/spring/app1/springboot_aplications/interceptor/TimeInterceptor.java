@@ -1,5 +1,6 @@
 package com.spring.app1.springboot_aplications.interceptor;
 
+import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,7 +22,7 @@ public class TimeInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, 
                                HttpServletResponse response, 
                                Object handler, 
-                               ModelAndView modelAndView) throws Exception {
+                               @Nullable ModelAndView modelAndView) throws Exception {
         long startTime = (Long) request.getAttribute(START_TIME);
         long duration = System.currentTimeMillis() - startTime;
         System.out.println("Tiempo de procesamiento: " + duration + " ms");
